@@ -71,7 +71,7 @@ class Program3
     static object fileLock = new object(); // Lock object for file access
     static int deadlockTimeout = 1; // 5 seconds timeout for deadlock detection
 
-    static void Main(string[] args)
+    static void Main3(string[] args)
     {
         string filePath = "C:\\Users\\tshahbaz\\source\\repos\\FileReadingWithMutualExclusion\\FileReadingWithMutua Exclusion\\TestFile3.txt";
         int numberOfThreads = 4; // Set the number of threads
@@ -119,5 +119,38 @@ class Program3
         Task.WaitAll(tasks); // Wait for all threads to complete
 
         Console.WriteLine("All processes finished executing.");
+    }
+}
+
+
+class Program
+{
+    private static Mutex processMutex = new Mutex(false, "FileWritingMutex"); // Mutex for process synchronization
+
+    static void Main(string[] args)
+    {
+        string filePath = "C:\\Users\\tshahbaz\\source\\repos\\FileReadingWithMutualExclusion\\FileReadingWithMutualExclusion\\TestFile3.txt";
+        try
+        {
+            // Logger.Log("I_01");
+            processMutex.WaitOne(2000); // Wait for ownership of the mutex
+            // Logger.Log(Convert.ToString(Thread.CurrentThread.ManagedThreadId));
+
+            using (StreamWriter writer = File.AppendText(filePath))
+            {
+                Console.WriteLine("Add Some data to write on file.");
+            }
+        }
+        catch (Exception ex)
+        {
+            // Logger.Log("I_02");
+            //// Handle the exception here
+            // Logger.Log(ex.ToString());
+        }
+        finally
+        {
+            // Logger.Log("I_03");
+            processMutex.ReleaseMutex(); // Release the mutex
+        }
     }
 }
