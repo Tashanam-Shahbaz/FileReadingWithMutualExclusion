@@ -154,3 +154,19 @@ class Program
         }
     }
 }
+
+
+// private static readonly object fileOperationLock = new Object();
+// try
+//                {
+//                    lock (fileOperationLock)
+//                    {
+//                        File.WriteAllBytes(_RequestInfo.FileLocalPath, _ResponseInfo.FileContent);
+//                        File.SetLastWriteTimeUtc(_RequestInfo.FileLocalPath, _ResponseInfo.ModifiedDate);
+//                    }
+ //               }
+//                catch (Exception ex)
+//                {
+ //                   Logger.Log(ex.ToString());
+ //               }
+//
