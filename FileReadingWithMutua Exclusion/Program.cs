@@ -214,4 +214,30 @@ class Program4
 
         }
     }
+
+            class PracticeDateTime
+    {
+        static void Main(string[] args)
+        {
+            DateTime dateTime = DateTime.Now;
+            Console.WriteLine(dateTime);
+            Console.WriteLine(dateTime.ToString("yyyy-MM-dd HH:mm:ss"));
+            Console.WriteLine(dateTime.ToString("dddd, MMMM dd,yyyy HH:mm:ss"));
+            Console.WriteLine(dateTime.ToString("dddd, MMMM dd,yyyy HH:mm:ss.fff zzz"));
+            Console.WriteLine(dateTime.ToString("dddd, MMMM dd,yyyy h:mm:ss tt"));
+
+            dateTime = DateTime.Today.AddDays(-1);
+            Console.WriteLine(dateTime);
+
+            DateOnly dateOnly = new DateOnly();
+            Console.WriteLine(dateOnly);
+            Console.WriteLine(DateOnly.FromDateTime(DateTime.Now));
+
+            TimeOnly timeOnly = new TimeOnly(); 
+            Console.WriteLine(timeOnly);
+            Console.WriteLine(TimeOnly.FromDateTime(DateTime.Now));
+
+
+        }
+    }
     }
