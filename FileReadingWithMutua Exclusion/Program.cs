@@ -187,57 +187,57 @@ class Program4
             enumerator.Reset();
 
         }
+   
+    }
 
-    class PracticeFileStream
+class PracticeFileStream
+{
+    static void Main7(string[] args)
     {
-        static void Main7(string[] args)
-        {
-            string filePath = @"C:\Users\tshahbaz\source\repos\FileReadingWithMutualExclusion\FileReadingWithMutua Exclusion\fileStream.txt";
-            //FileStream file = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None);
-            //string text = "This is first line";
-            //byte[] byteArray = Encoding.UTF8.GetBytes(text);
-            //file.Write(byteArray);
-            ////file.Write(byteArray,0,4);
-            //file.Close();
+        string filePath = @"C:\Users\tshahbaz\source\repos\FileReadingWithMutualExclusion\FileReadingWithMutua Exclusion\fileStream.txt";
+        //FileStream file = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None);
+        //string text = "This is first line";
+        //byte[] byteArray = Encoding.UTF8.GetBytes(text);
+        //file.Write(byteArray);
+        ////file.Write(byteArray,0,4);
+        //file.Close();
 
-            // ReadFile
-            using (FileStream fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.None))
-            using (StreamReader reader = new StreamReader(fileStream))
+        // ReadFile
+        using (FileStream fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.None))
+        using (StreamReader reader = new StreamReader(fileStream))
+        {
+            string line;
+            while ((line = reader.ReadLine()) != null)
             {
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    Console.WriteLine(line);
-                }
+                Console.WriteLine(line);
             }
-            //file.Close();
-
         }
-    }
+        //file.Close();
 
-            class PracticeDateTime
+    }
+}
+class PracticeDateTime
+{
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            DateTime dateTime = DateTime.Now;
-            Console.WriteLine(dateTime);
-            Console.WriteLine(dateTime.ToString("yyyy-MM-dd HH:mm:ss"));
-            Console.WriteLine(dateTime.ToString("dddd, MMMM dd,yyyy HH:mm:ss"));
-            Console.WriteLine(dateTime.ToString("dddd, MMMM dd,yyyy HH:mm:ss.fff zzz"));
-            Console.WriteLine(dateTime.ToString("dddd, MMMM dd,yyyy h:mm:ss tt"));
+        DateTime dateTime = DateTime.Now;
+        Console.WriteLine(dateTime);
+        Console.WriteLine(dateTime.ToString("yyyy-MM-dd HH:mm:ss"));
+        Console.WriteLine(dateTime.ToString("dddd, MMMM dd,yyyy HH:mm:ss"));
+        Console.WriteLine(dateTime.ToString("dddd, MMMM dd,yyyy HH:mm:ss.fff zzz"));
+        Console.WriteLine(dateTime.ToString("dddd, MMMM dd,yyyy h:mm:ss tt"));
 
-            dateTime = DateTime.Today.AddDays(-1);
-            Console.WriteLine(dateTime);
+        dateTime = DateTime.Today.AddDays(-1);
+        Console.WriteLine(dateTime);
 
-            DateOnly dateOnly = new DateOnly();
-            Console.WriteLine(dateOnly);
-            Console.WriteLine(DateOnly.FromDateTime(DateTime.Now));
+        DateOnly dateOnly = new DateOnly();
+        Console.WriteLine(dateOnly);
+        Console.WriteLine(DateOnly.FromDateTime(DateTime.Now));
 
-            TimeOnly timeOnly = new TimeOnly(); 
-            Console.WriteLine(timeOnly);
-            Console.WriteLine(TimeOnly.FromDateTime(DateTime.Now));
+        TimeOnly timeOnly = new TimeOnly();
+        Console.WriteLine(timeOnly);
+        Console.WriteLine(TimeOnly.FromDateTime(DateTime.Now));
 
 
-        }
     }
-    }
+}
