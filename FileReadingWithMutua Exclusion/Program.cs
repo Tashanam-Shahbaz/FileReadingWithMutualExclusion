@@ -192,9 +192,9 @@ class Program4
     {
         static void Main(string[] args)
         {
-            string filePath = "C:\\Users\\tshahbaz\\source\\repos\\FileReadingWithMutualExclusion\\FileReadingWithMutua Exclusion\\fileStream.txt";
+            string filePath = @"C:\Users\tshahbaz\source\repos\FileReadingWithMutualExclusion\FileReadingWithMutua Exclusion\fileStream.txt"; // verbatim literal 
             FileStream file = new FileStream(filePath,FileMode.Create, FileAccess.Write, FileShare.None) ;
-            string text = "This is first line";
+            string text = "This is first line. second attempt";
             byte[] byteArray = Encoding.UTF8.GetBytes(text);
             file.Write(byteArray);
             //file.Write(byteArray,0,4);
