@@ -190,17 +190,15 @@ class Program4
 
     class PracticeFileStream
     {
-        static void Main(string[] args)
+        static void Main7(string[] args)
         {
-            string filePath = @"C:\Users\tshahbaz\source\repos\FileReadingWithMutualExclusion\FileReadingWithMutua Exclusion\fileStream.txt"; // verbatim literal 
-                                                                                                                                              //FileStream file = new FileStream(filePath,FileMode.Create, FileAccess.Write, FileShare.None) ;
-                                                                                                                                              //string text = "This is first line. second attempt";
-                                                                                                                                              //byte[] byteArray = Encoding.UTF8.GetBytes(text);
-                                                                                                                                              //file.Write(byteArray);
-                                                                                                                                              ////file.Write(byteArray,0,4);
-                                                                                                                                              //file.Close();
-
-
+            string filePath = @"C:\Users\tshahbaz\source\repos\FileReadingWithMutualExclusion\FileReadingWithMutua Exclusion\fileStream.txt";
+            //FileStream file = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None);
+            //string text = "This is first line";
+            //byte[] byteArray = Encoding.UTF8.GetBytes(text);
+            //file.Write(byteArray);
+            ////file.Write(byteArray,0,4);
+            //file.Close();
 
             // ReadFile
             using (FileStream fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.None))
