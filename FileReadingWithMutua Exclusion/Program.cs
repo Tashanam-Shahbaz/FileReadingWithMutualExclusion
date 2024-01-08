@@ -188,17 +188,31 @@ class Program4
 
         }
 
-    class PracticeFileStrream
+    class PracticeFileStream
     {
         static void Main(string[] args)
         {
             string filePath = @"C:\Users\tshahbaz\source\repos\FileReadingWithMutualExclusion\FileReadingWithMutua Exclusion\fileStream.txt"; // verbatim literal 
-            FileStream file = new FileStream(filePath,FileMode.Create, FileAccess.Write, FileShare.None) ;
-            string text = "This is first line. second attempt";
-            byte[] byteArray = Encoding.UTF8.GetBytes(text);
-            file.Write(byteArray);
-            //file.Write(byteArray,0,4);
-            file.Close();
+                                                                                                                                              //FileStream file = new FileStream(filePath,FileMode.Create, FileAccess.Write, FileShare.None) ;
+                                                                                                                                              //string text = "This is first line. second attempt";
+                                                                                                                                              //byte[] byteArray = Encoding.UTF8.GetBytes(text);
+                                                                                                                                              //file.Write(byteArray);
+                                                                                                                                              ////file.Write(byteArray,0,4);
+                                                                                                                                              //file.Close();
+
+
+
+            // ReadFile
+            using (FileStream fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.None))
+            using (StreamReader reader = new StreamReader(fileStream))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                }
+            }
+            //file.Close();
 
         }
     }
