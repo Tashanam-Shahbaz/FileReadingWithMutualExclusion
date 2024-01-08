@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Collections;
+using System.Text;
 
 
 // Multi-threading
@@ -173,7 +174,7 @@ class Program4
 //
     class PracticeIEnumerator
     {
-        static void Main(string[] args)
+        static void Main6(string[] args)
         {
             int[] number = { 1, 2, 3, 4,90, 5, 6, 7, 8 };
             IEnumerator enumerator = number.GetEnumerator();
@@ -186,4 +187,19 @@ class Program4
             enumerator.Reset();
 
         }
+
+    class PracticeFileStrream
+    {
+        static void Main(string[] args)
+        {
+            string filePath = "C:\\Users\\tshahbaz\\source\\repos\\FileReadingWithMutualExclusion\\FileReadingWithMutua Exclusion\\fileStream.txt";
+            FileStream file = new FileStream(filePath,FileMode.Create, FileAccess.Write, FileShare.None) ;
+            string text = "This is first line";
+            byte[] byteArray = Encoding.UTF8.GetBytes(text);
+            file.Write(byteArray);
+            //file.Write(byteArray,0,4);
+            file.Close();
+
+        }
+    }
     }
