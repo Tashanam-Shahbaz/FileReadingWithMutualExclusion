@@ -170,3 +170,19 @@ class Program
  //                   Logger.Log(ex.ToString());
  //               }
 //
+    class PracticeIEnumerator
+    {
+        static void Main(string[] args)
+        {
+            int[] number = { 1, 2, 3, 4,90, 5, 6, 7, 8 };
+            IEnumerator enumerator = number.GetEnumerator();
+            while (enumerator.MoveNext())
+            { 
+                Console.WriteLine(enumerator.Current);
+            }
+
+            // Reset the enumerator to the beginning
+            enumerator.Reset();
+
+        }
+    }
