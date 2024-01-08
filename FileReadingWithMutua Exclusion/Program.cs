@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Collections;
 
 
 // Multi-threading
@@ -123,11 +124,11 @@ class Program3
 }
 
 
-class Program
+class Program4
 {
     private static Mutex processMutex = new Mutex(false, "FileWritingMutex"); // Mutex for process synchronization
 
-    static void Main(string[] args)
+    static void Main4(string[] args)
     {
         string filePath = "C:\\Users\\tshahbaz\\source\\repos\\FileReadingWithMutualExclusion\\FileReadingWithMutualExclusion\\TestFile3.txt";
         try
