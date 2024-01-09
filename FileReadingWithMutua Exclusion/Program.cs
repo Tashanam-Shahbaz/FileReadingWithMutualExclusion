@@ -246,5 +246,36 @@ class PracticeDateTime
 
 }
 
+    class PracticeCustomFilter
+    { 
+        static void Main(string[] args)
+        {
+            List<Employee> employeeList = EmployeeData.GetEmployees();
+            List<Employee> filteredEmployees = employeeList.MyWhere(e => e.Department == "Admin" );
+
+
+            foreach (var employee in filteredEmployees)
+            {
+
+                Console.WriteLine($"Employee Id : {employee.Id}");
+                Console.WriteLine($"Epmloyee Name :{employee.FirstName}");
+                Console.WriteLine($"Epmloyee Department: {employee.Department} ");
+                Console.WriteLine($"Employee isManager :{employee.isMananger } \n");
+            }
+
+
+            List<int> filteredEmployees2 = employeeList.MySelect(e => e.Id);
+            Console.WriteLine(filteredEmployees2);
+            foreach (var item in filteredEmployees2)
+            {
+
+                Console.WriteLine($"Employee Id : {item}");
+             
+            }
+        }
+
+    }
+
+
 
 
