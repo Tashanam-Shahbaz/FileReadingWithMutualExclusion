@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Collections;
 using System.Text;
+using FileReadingWithMutua_Exclusion;
+using FileReadingWithMutual_Exclusion;
 
 
 // Multi-threading
@@ -218,7 +220,7 @@ class PracticeFileStream
 }
 class PracticeDateTime
 {
-    static void Main(string[] args)
+    static void Main8(string[] args)
     {
         DateTime dateTime = DateTime.Now;
         Console.WriteLine(dateTime);
@@ -227,8 +229,9 @@ class PracticeDateTime
         Console.WriteLine(dateTime.ToString("dddd, MMMM dd,yyyy HH:mm:ss.fff zzz"));
         Console.WriteLine(dateTime.ToString("dddd, MMMM dd,yyyy h:mm:ss tt"));
 
-        dateTime = DateTime.Today.AddDays(-1);
-        Console.WriteLine(dateTime);
+        DateTime dateTime2 = DateTime.Today.AddDays(-1);
+        Console.WriteLine(dateTime2);
+        Console.WriteLine(dateTime > dateTime2);
 
         DateOnly dateOnly = new DateOnly();
         Console.WriteLine(dateOnly);
@@ -240,4 +243,8 @@ class PracticeDateTime
 
 
     }
+
 }
+
+
+
