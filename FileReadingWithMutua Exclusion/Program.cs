@@ -7,9 +7,8 @@ using System.Text;
 using FileReadingWithMutua_Exclusion;
 using FileReadingWithMutual_Exclusion;
 
-
 // Multi-threading
-class Program
+class Program11
 {
 
     static void Main1(string[] args)
@@ -248,7 +247,7 @@ class PracticeDateTime
 
     class PracticeCustomFilter
     { 
-        static void Main(string[] args)
+        static void Main10(string[] args)
         {
             List<Employee> employeeList = EmployeeData.GetEmployees();
             List<Employee> filteredEmployees = employeeList.MyWhere(e => e.Department == "Admin" );
@@ -277,5 +276,91 @@ class PracticeDateTime
     }
 
 
+//class EODPriceTask
+//{
+//    static public void Main12(string[] args)
+//    {
+
+//        string EODPriceFilePath = @"C:\SourceTree\TrafixMaster\Servers\ReportServer\x64\Debug\Config\20240111_Trafix_EOD_Prices_modified.CSV";
+//            if (File.Exists(EODPriceFilePath))
+//        {
+//            try
+//            {
+//                Workbook my_workbook = new Workbook();
+//                my_workbook.LoadDocument(EODPriceFilePath);
+
+//                Worksheet my_worksheet = my_workbook.Worksheets[0];
+//                CellRange usedRange = my_worksheet.GetUsedRange();
+
+//                int rowCount = usedRange.RowCount;
+//                int colCount = usedRange.ColumnCount;
+
+//                for (int row = 0; row < rowCount; row++)
+//                {
+//                    for (int col = 0; col < colCount; col++)
+//                    {
+
+//                        var cellValue = usedRange[row, col].Value;
 
 
+//                    }
+
+//                }
+//            }
+//            catch (Exception ex)
+//            {
+//                //Logger.Log(ex.ToString());
+//            }
+            
+
+//    }
+
+//    }
+//}
+
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string filePath = "C:\\Users\\\\tshahbaz\\\\source\\\\repos\\\\FileReadingWithMutualExclusion\\\\FileReadingWithMutua Exclusion\\His-CAT-3.csv";
+        int lineNumberToInsert = 3; // Change this to your desired line number
+        string dataToInsert = "new,data,to,insert"; // Change this to your desired data
+
+        InsertDataIntoCSV(filePath, lineNumberToInsert, dataToInsert);
+    }
+
+    static void InsertDataIntoCSV(string filePath, int lineNumber, string data)
+    {
+        // Create a temporary file to write the modified data
+        string tempFilePath = Path.GetTempFileName();
+
+        using (StreamWriter writer = new StreamWriter(tempFilePath))
+        using (StreamReader reader = new StreamReader(filePath))
+        {
+            // Write data to temporary file up to the line where you want to insert
+            for (int i = 1; i < lineNumber; i++)
+            {
+                string line = reader.ReadLine();
+                if (line == null)
+                {
+                    // Handle case where lineNumber is greater than number of lines in file
+                    //throw new InvalidOperationException("Specified line number exceeds total lines in file.");
+                }
+                writer.WriteLine(line);
+            }
+
+            // Write the new data at the desired line number
+            writer.WriteLine(data);
+
+            // Write remaining data from original file
+            string remainingContent = reader.ReadToEnd();
+            writer.Write(remainingContent);
+        }
+
+        // Replace the original file with the modified temporary file
+        File.Delete(filePath);
+        File.Move(tempFilePath, filePath);
+    }
+}
